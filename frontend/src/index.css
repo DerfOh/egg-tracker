@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure full background and text color for both themes */
+html, body {
+  @apply bg-white text-gray-900;
+}
+.dark html, .dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Remove background from all elements that might default to white */
+* {
+  @apply bg-transparent;
+}
+
+/* Utility: override for containers if needed */
+.dark .bg-white {
+  @apply bg-gray-900 !important;
+}

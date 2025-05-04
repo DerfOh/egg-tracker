@@ -1,0 +1,46 @@
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# Go
+backend/bin/
+backend/*.exe
+backend/*.exe~
+backend/*.out
+backend/*.test
+backend/coverage.out
+backend/.env
+
+# Database and backups
+data/
+backups/
+
+# Docker
+*.log
+*.pid
+*.sock
+.docker/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+*.tar
+*.gz
+*.zip
+
+# Misc
+.env
+.env.*
+
+# Ignore local config
+*.local

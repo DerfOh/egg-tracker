@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: egg-tracker-backend-1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - eggtracker-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: eggtracker-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - eggtracker-network
+
+  duckdb-storage:
+    image: alpine
+    container_name: duckdb-storage
+    command: sh -c 'tail -f /dev/null'
+    volumes:
+      - ./data:/data
+    networks:
+      - eggtracker-network
+
+volumes:
+  data:
+
+networks:
+  eggtracker-network:
+    driver: bridge
